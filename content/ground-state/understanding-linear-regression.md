@@ -173,7 +173,7 @@ ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes,
         verticalalignment='top', fontsize=8)
 
 plt.tight_layout()
-plt.savefig('static/images/linear-regression-analysis.png', dpi=150, bbox_inches='tight')
+plt.savefig('static/images/linear-regression-analysis.png', dpi=100, bbox_inches='tight')
 plt.show()
 
 # Print detailed statistics
