@@ -118,9 +118,9 @@ predict_std = np.sqrt(mean_squared_error(y, y_pred) * (1 + 1/n_points +
 ci_95 = 1.96 * predict_std
 
 # Create comprehensive visualization
-fig, axes = plt.subplots(2, 2, figsize=(12, 9))
+fig, axes = plt.subplots(2, 2, figsize=(8, 6))
 fig.suptitle('Linear Regression Analysis: Understanding the Fundamentals', 
-             fontsize=14, fontweight='bold')
+             fontsize=11, fontweight='bold')
 
 # Plot 1: Data and Fit with Confidence Interval
 ax1 = axes[0, 0]
@@ -128,15 +128,15 @@ ax1.scatter(x, y, alpha=0.6, s=40, label='Observed Data', color='steelblue')
 ax1.plot(x, y_pred, 'r-', linewidth=2, label=f'Fitted: y = {model.coef_[0]:.2f}x + {model.intercept_:.2f}')
 ax1.plot(x, y_true, 'g--', linewidth=2, alpha=0.7, label=f'True: y = {true_slope}x + {true_intercept}')
 ax1.fill_between(x, y_pred - ci_95, y_pred + ci_95, alpha=0.2, color='red', label='95% CI')
-ax1.set_xlabel('x', fontsize=11)
-ax1.set_ylabel('y', fontsize=11)
-ax1.set_title('Data and Fitted Model', fontsize=12, fontweight='bold')
-ax1.legend(loc='upper left', fontsize=8)
+ax1.set_xlabel('x', fontsize=9)
+ax1.set_ylabel('y', fontsize=9)
+ax1.set_title('Data and Fitted Model', fontsize=10, fontweight='bold')
+ax1.legend(loc='upper left', fontsize=7)
 ax1.grid(True, alpha=0.3)
-ax1.text(0.98, 0.02, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
+ax1.text(0.98, 0.98, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
          transform=ax1.transAxes,
          bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5), 
-         fontsize=10, verticalalignment='bottom', horizontalalignment='right')
+         fontsize=8, verticalalignment='top', horizontalalignment='right')
 
 # Plot 2: Residual Plot
 ax2 = axes[0, 1]
@@ -144,33 +144,33 @@ ax2.scatter(y_pred, residuals, alpha=0.6, s=40, color='steelblue')
 ax2.axhline(y=0, color='r', linestyle='--', linewidth=2)
 ax2.axhline(y=rmse, color='orange', linestyle=':', linewidth=1.5, label=f'±RMSE = ±{rmse:.2f}')
 ax2.axhline(y=-rmse, color='orange', linestyle=':', linewidth=1.5)
-ax2.set_xlabel('Predicted Values', fontsize=11)
-ax2.set_ylabel('Residuals', fontsize=11)
-ax2.set_title('Residual Plot', fontsize=12, fontweight='bold')
-ax2.legend(fontsize=8)
+ax2.set_xlabel('Predicted Values', fontsize=9)
+ax2.set_ylabel('Residuals', fontsize=9)
+ax2.set_title('Residual Plot', fontsize=10, fontweight='bold')
+ax2.legend(fontsize=7)
 ax2.grid(True, alpha=0.3)
 
 # Plot 3: Q-Q Plot for Normality of Residuals
 ax3 = axes[1, 0]
 stats.probplot(residuals, dist="norm", plot=ax3)
-ax3.set_title('Q-Q Plot', fontsize=12, fontweight='bold')
+ax3.set_title('Q-Q Plot', fontsize=10, fontweight='bold')
 ax3.grid(True, alpha=0.3)
 
 # Plot 4: Histogram of Residuals
 ax4 = axes[1, 1]
 ax4.hist(residuals, bins=20, alpha=0.7, color='steelblue', edgecolor='black')
 ax4.axvline(x=0, color='r', linestyle='--', linewidth=2, label='Zero')
-ax4.set_xlabel('Residual Value', fontsize=11)
-ax4.set_ylabel('Frequency', fontsize=11)
-ax4.set_title('Distribution of Residuals', fontsize=12, fontweight='bold')
-ax4.legend(fontsize=8)
+ax4.set_xlabel('Residual Value', fontsize=9)
+ax4.set_ylabel('Frequency', fontsize=9)
+ax4.set_title('Distribution of Residuals', fontsize=10, fontweight='bold')
+ax4.legend(fontsize=7)
 ax4.grid(True, alpha=0.3, axis='y')
 
 # Add statistical summary
-stats_text = f'Mean of Residuals: {np.mean(residuals):.4f}\nStd of Residuals: {np.std(residuals):.4f}'
+stats_text = f'Mean: {np.mean(residuals):.4f}\nStd: {np.std(residuals):.4f}'
 ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes, 
-         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5),
-         verticalalignment='top', fontsize=10)
+        bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5),
+        verticalalignment='top', fontsize=8)
 
 plt.tight_layout()
 plt.savefig('static/images/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
