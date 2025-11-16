@@ -1,0 +1,43 @@
+{{ define "main" }}
+  <header class="site-hero">
+    <h1>{{ .Site.Title }}</h1>
+    <p class="tagline">{{ with .Site.Params.tagline }}{{ . }}{{ end }}</p>
+  </header>
+
+  <section class="columns">
+    <div class="col">
+      <h2><a href="/ground-state/">Ground State</a></h2>
+      <p style="color: #999; font-size: 0.95rem; margin-bottom: 1.5rem;">Fundamentals and philosophical perspectives</p>
+      <ul class="post-list">
+        {{ range first 5 (where .Site.RegularPages "Section" "ground-state") }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </li>
+        {{ else }}
+          <li style="color: #666;">No posts yet</li>
+        {{ end }}
+      </ul>
+      {{ if ge (len (where .Site.RegularPages "Section" "ground-state")) 5 }}
+        <p style="margin-top: 1rem;"><a href="/ground-state/">View all →</a></p>
+      {{ end }}
+    </div>
+    <div class="col">
+      <h2><a href="/excited-state/">Excited State</a></h2>
+      <p style="color: #999; font-size: 0.95rem; margin-bottom: 1.5rem;">Hot takes and new results</p>
+      <ul class="post-list">
+        {{ range first 5 (where .Site.RegularPages "Section" "excited-state") }}
+          <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            <span class="date">{{ .Date.Format "Jan 2, 2006" }}</span>
+          </li>
+        {{ else }}
+          <li style="color: #666;">No posts yet</li>
+        {{ end }}
+      </ul>
+      {{ if ge (len (where .Site.RegularPages "Section" "excited-state")) 5 }}
+        <p style="margin-top: 1rem;"><a href="/excited-state/">View all →</a></p>
+      {{ end }}
+    </div>
+  </section>
+{{ end }}

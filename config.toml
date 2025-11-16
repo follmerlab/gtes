@@ -1,0 +1,43 @@
+baseURL = "/"
+languageCode = "en-us"
+title = "Ground Truths & Excited States"
+pagination = { pagerSize = 10 }
+
+[params]
+  tagline = "Where foundations meet dynamics in molecular science"
+
+[markup.goldmark.renderer]
+unsafe = true
+
+[permalinks]
+  ground-state = "/ground-state/:slug/"
+  excited-state = "/excited-state/:slug/"
+
+[taxonomies]
+  tag = "tags"
+  category = "categories"
+
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+    name = "Ground State"
+    url = "/ground-state/"
+    weight = 2
+  [[menu.main]]
+    name = "Excited State"
+    url = "/excited-state/"
+    weight = 3
+  [[menu.main]]
+    name = "Archive"
+    url = "/posts/"
+    weight = 4
+  [[menu.main]]
+    name = "About"
+    url = "/about/"
+    weight = 5
+
+[outputs]
+home = ["HTML", "RSS"]

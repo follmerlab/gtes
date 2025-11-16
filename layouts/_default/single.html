@@ -1,0 +1,21 @@
+{{ define "main" }}
+<article class="post">
+  <header style="border-bottom: 1px solid #333; padding-bottom: 1.5rem; margin-bottom: 2rem;">
+    <h1>{{ .Title }}</h1>
+    <p class="post-meta">
+      {{ .Date.Format "January 2, 2006" }}
+      {{ with .Params.categories }} · {{ delimit . ", " }}{{ end }}
+    </p>
+  </header>
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+  {{ if .Params.tags }}
+  <footer style="margin-top: 3rem; padding-top: 1.5rem; border-top: 1px solid #333;">
+    <p class="tags">
+      {{ range .Params.tags }}<a class="tag" href="/tags/{{ . | urlize }}/">#{{ . }}</a> {{ end }}
+    </p>
+  </footer>
+  {{ end }}
+</article>
+{{ end }}
