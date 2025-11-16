@@ -23,3 +23,6 @@ Thumbs.db
 
 # Local guides (not for repo)
 POSTING.md
+
+# Python scripts for generating plots
+*.py
