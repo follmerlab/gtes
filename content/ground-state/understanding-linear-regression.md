@@ -118,9 +118,9 @@ predict_std = np.sqrt(mean_squared_error(y, y_pred) * (1 + 1/n_points +
 ci_95 = 1.96 * predict_std
 
 # Create comprehensive visualization
-fig, axes = plt.subplots(2, 2, figsize=(8, 6))
+fig, axes = plt.subplots(2, 2, figsize=(6, 4.5))
 fig.suptitle('Linear Regression Analysis: Understanding the Fundamentals', 
-             fontsize=11, fontweight='bold')
+             fontsize=10, fontweight='bold')
 
 # Plot 1: Data and Fit with Confidence Interval
 ax1 = axes[0, 0]
@@ -131,12 +131,12 @@ ax1.fill_between(x, y_pred - ci_95, y_pred + ci_95, alpha=0.2, color='red', labe
 ax1.set_xlabel('x', fontsize=9)
 ax1.set_ylabel('y', fontsize=9)
 ax1.set_title('Data and Fitted Model', fontsize=10, fontweight='bold')
-ax1.legend(loc='upper left', fontsize=7)
+ax1.legend(loc='upper left', fontsize=6)
 ax1.grid(True, alpha=0.3)
-ax1.text(0.98, 0.98, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
+ax1.text(0.98, 0.55, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
          transform=ax1.transAxes,
          bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5), 
-         fontsize=8, verticalalignment='top', horizontalalignment='right')
+         fontsize=7, verticalalignment='center', horizontalalignment='right')
 
 # Plot 2: Residual Plot
 ax2 = axes[0, 1]
@@ -173,7 +173,7 @@ ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes,
         verticalalignment='top', fontsize=8)
 
 plt.tight_layout()
-plt.savefig('static/images/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
+plt.savefig('static/images/linear-regression-analysis.png', dpi=150, bbox_inches='tight')
 plt.show()
 
 # Print detailed statistics
