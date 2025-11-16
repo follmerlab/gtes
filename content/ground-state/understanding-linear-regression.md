@@ -15,16 +15,16 @@ In chemistry and molecular science, we constantly fit lines to data—calibratio
 
 # The Mathematical Foundation
 
-Linear regression models the relationship between a dependent variable $y$ and one or more independent variables $x$ through a linear equation:
+Linear regression models the relationship between a dependent variable $y$ and one or more independent variables $x$ through a linear equation. If you remember $y = mx + b$ from algebra, you already know the core idea—we're just using different notation:
 
 $$
 y = \beta_0 + \beta_1 x + \epsilon
 $$
 
 where:
-- $\beta_0$ is the *intercept*
-- $\beta_1$ is the *slope* 
-- $\epsilon$ represents the error term (residuals)
+- $\beta_0$ is the *intercept* (like $b$ in $y = mx + b$)
+- $\beta_1$ is the *slope* (like $m$ in $y = mx + b$)
+- $\epsilon$ represents the error term (residuals—real data rarely falls perfectly on a line)
 
 The goal is to find the values of $\beta_0$ and $\beta_1$ that minimize the sum of squared residuals:
 
@@ -36,7 +36,7 @@ This is the **ordinary least squares (OLS)** criterion. Taking partial derivativ
 
 $$
 \begin{aligned}
-\beta_1 &= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2} = \frac{\text{Cov}(x,y)}{\text{Var}(x)} \\
+\beta_1 &= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2} = \frac{\mathrm{Cov}(x,y)}{\mathrm{Var}(x)} \\
 \beta_0 &= \bar{y} - \beta_1\bar{x}
 \end{aligned}
 $$
@@ -48,7 +48,7 @@ $$
 $R^2$ measures the proportion of variance in $y$ explained by the model:
 
 $$
-R^2 = 1 - \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}
+R^2 = 1 - \frac{\mathrm{SSR}}{\mathrm{SST}} = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}
 $$
 
 where SST is the total sum of squares. **Critical insight:** $R^2$ always increases with more variables, even if they're meaningless. For simple linear regression, $R^2 = r^2$ where $r$ is the Pearson correlation coefficient.
@@ -57,8 +57,10 @@ where SST is the total sum of squares. **Critical insight:** $R^2$ always increa
 
 RMSE provides the standard deviation of residuals in the same units as $y$:
 
+RMSE quantifies the average prediction error in the same units as $y$:
+
 $$
-\text{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
+\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
 $$
 
 Unlike $R^2$, RMSE has interpretable units and tells you the typical prediction error.
@@ -68,7 +70,11 @@ Unlike $R^2$, RMSE has interpretable units and tells you the typical prediction 
 The standard error of the slope quantifies uncertainty in $\beta_1$:
 
 $$
-\text{SE}(\beta_1) = \sqrt{\frac{\text{MSE}}{\sum(x_i - \bar{x})^2}}
+The standard errors of the coefficients tell us the uncertainty in our estimates:
+
+$$
+\mathrm{SE}(\beta_1) = \sqrt{\frac{\mathrm{MSE}}{\sum(x_i - \bar{x})^2}}
+$$
 $$
 
 where MSE is the mean squared error. This allows construction of confidence intervals and hypothesis tests.
