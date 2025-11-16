@@ -118,9 +118,9 @@ predict_std = np.sqrt(mean_squared_error(y, y_pred) * (1 + 1/n_points +
 ci_95 = 1.96 * predict_std
 
 # Create comprehensive visualization
-fig, axes = plt.subplots(2, 2, figsize=(6, 4.5))
+fig, axes = plt.subplots(2, 2, figsize=(7, 5.25))
 fig.suptitle('Linear Regression Analysis: Understanding the Fundamentals', 
-             fontsize=10, fontweight='bold')
+             fontsize=11, fontweight='bold')
 
 # Plot 1: Data and Fit with Confidence Interval
 ax1 = axes[0, 0]
@@ -173,7 +173,7 @@ ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes,
         verticalalignment='top', fontsize=8)
 
 plt.tight_layout()
-plt.savefig('static/images/linear-regression-analysis.png', dpi=100, bbox_inches='tight')
+plt.savefig('static/images/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
 plt.show()
 
 # Print detailed statistics
