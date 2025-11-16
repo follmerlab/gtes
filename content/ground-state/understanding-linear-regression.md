@@ -191,7 +191,7 @@ print(f"  Max:            {np.max(residuals):.4f}")
 print("="*60)
 ```
 
-![Linear Regression Analysis](/images/linear-regression-analysis.png)
+![Linear Regression Analysis](../../images/linear-regression-analysis.png)
 
 # Key Diagnostic Checks
 
