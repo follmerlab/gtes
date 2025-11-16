@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "https://follmerlab.github.io/gtes/"
 languageCode = "en-us"
 title = "Ground Truths & Excited States"
 pagination = { pagerSize = 10 }
