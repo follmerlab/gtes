@@ -9,6 +9,14 @@ pagination = { pagerSize = 10 }
 [markup.goldmark.renderer]
 unsafe = true
 
+[markup.goldmark.parser]
+autoHeadingID = true
+autoHeadingIDType = "github"
+
+[markup.goldmark.parser.attribute]
+block = false
+title = true
+
 [permalinks]
   ground-state = "/ground-state/:slug/"
   excited-state = "/excited-state/:slug/"

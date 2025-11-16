@@ -17,9 +17,9 @@ In chemistry and molecular science, we constantly fit lines to data—calibratio
 
 Linear regression models the relationship between a dependent variable $y$ and one or more independent variables $x$ through a linear equation. If you remember $y = mx + b$ from algebra, you already know the core idea—we're just using different notation:
 
-$$
-y = \beta_0 + \beta_1 x + \epsilon
-$$
+<div>
+$$y = \beta_0 + \beta_1 x + \epsilon$$
+</div>
 
 where:
 - $\beta_0$ is the *intercept* (like $b$ in $y = mx + b$)
@@ -28,18 +28,18 @@ where:
 
 The goal is to find the values of $\beta_0$ and $\beta_1$ that minimize the sum of squared residuals:
 
-$$
-\mathrm{SSR} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
-$$
+<div>
+$$\mathrm{SSR} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2$$
+</div>
 
 This is the **ordinary least squares (OLS)** criterion. Taking partial derivatives and setting them to zero yields the closed-form solutions:
 
-$$
-\begin{aligned}
+<div>
+$$\begin{aligned}
 \beta_1 &= \frac{\sum_{i=1}^{n}(x_i - \bar{x})(y_i - \bar{y})}{\sum_{i=1}^{n}(x_i - \bar{x})^2} = \frac{\mathrm{Cov}(x,y)}{\mathrm{Var}(x)} \\
 \beta_0 &= \bar{y} - \beta_1\bar{x}
-\end{aligned}
-$$
+\end{aligned}$$
+</div>
 
 # Statistical Metrics That Matter
 
@@ -47,35 +47,29 @@ $$
 
 $R^2$ measures the proportion of variance in $y$ explained by the model:
 
-$$
-R^2 = 1 - \frac{\mathrm{SSR}}{\mathrm{SST}} = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}
-$$
+<div>
+$$R^2 = 1 - \frac{\mathrm{SSR}}{\mathrm{SST}} = 1 - \frac{\sum(y_i - \hat{y}_i)^2}{\sum(y_i - \bar{y})^2}$$
+</div>
 
 where SST is the total sum of squares. **Critical insight:** $R^2$ always increases with more variables, even if they're meaningless. For simple linear regression, $R^2 = r^2$ where $r$ is the Pearson correlation coefficient.
 
 ## RMSE (Root Mean Square Error)
 
-RMSE provides the standard deviation of residuals in the same units as $y$:
-
 RMSE quantifies the average prediction error in the same units as $y$:
 
-$$
-\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
-$$
+<div>
+$$\mathrm{RMSE} = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}$$
+</div>
 
 Unlike $R^2$, RMSE has interpretable units and tells you the typical prediction error.
 
 ## Standard Errors and Confidence Intervals
 
-The standard error of the slope quantifies uncertainty in $\beta_1$:
-
-$$
 The standard errors of the coefficients tell us the uncertainty in our estimates:
 
-$$
-\mathrm{SE}(\beta_1) = \sqrt{\frac{\mathrm{MSE}}{\sum(x_i - \bar{x})^2}}
-$$
-$$
+<div>
+$$\mathrm{SE}(\beta_1) = \sqrt{\frac{\mathrm{MSE}}{\sum(x_i - \bar{x})^2}}$$
+</div>
 
 where MSE is the mean squared error. This allows construction of confidence intervals and hypothesis tests.
 
