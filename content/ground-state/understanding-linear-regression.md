@@ -133,10 +133,10 @@ ax1.set_ylabel('y', fontsize=9)
 ax1.set_title('Data and Fitted Model', fontsize=10, fontweight='bold')
 ax1.legend(loc='upper left', fontsize=6)
 ax1.grid(True, alpha=0.3)
-ax1.text(0.98, 0.55, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
+ax1.text(0.98, 0.02, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
          transform=ax1.transAxes,
          bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5), 
-         fontsize=7, verticalalignment='center', horizontalalignment='right')
+         fontsize=7, verticalalignment='bottom', horizontalalignment='right')
 
 # Plot 2: Residual Plot
 ax2 = axes[0, 1]
@@ -197,7 +197,7 @@ print("="*60)
 
 </details>
 
-![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=4)
+![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=5)
 
 # Key Diagnostic Checks
 
