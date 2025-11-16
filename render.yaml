@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: gtes-api
+    env: python
+    buildCommand: pip install -r requirements-api.txt
+    startCommand: python regression_api.py
+    envVars:
+      - key: PORT
+        value: 10000
+      - key: ENVIRONMENT
+        value: production

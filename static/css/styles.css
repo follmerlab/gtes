@@ -238,3 +238,29 @@ a:hover {
   text-align: center;
   font-size: 0.9rem;
 }
+
+/* Collapsible code sections */
+details {
+    margin: 1.5em 0;
+    padding: 1em;
+    background: #1a1a1a;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+
+details summary {
+    cursor: pointer;
+    font-weight: bold;
+    color: #4a9eff;
+    user-select: none;
+    padding: 0.5em;
+}
+
+details summary:hover {
+    color: #6bb3ff;
+}
+
+details[open] summary {
+    margin-bottom: 1em;
+    border-bottom: 1px solid #333;
+}

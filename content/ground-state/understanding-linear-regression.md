@@ -73,9 +73,12 @@ $$
 
 where MSE is the mean squared error. This allows construction of confidence intervals and hypothesis tests.
 
-# Implementation and Visualization
+# Python Implementation
 
-Let's demonstrate these concepts with Python code that generates synthetic data, fits a linear model, and visualizes key statistical properties.
+Here's a complete implementation demonstrating linear regression with comprehensive diagnostics:
+
+<details>
+<summary><strong>Click to show/hide Python code</strong></summary>
 
 ```python
 import numpy as np
@@ -84,7 +87,6 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score, mean_squared_error
 from scipy import stats
 
-# Set random seed for reproducibility
 np.random.seed(42)
 
 # Generate synthetic data with known relationship
@@ -116,50 +118,52 @@ predict_std = np.sqrt(mean_squared_error(y, y_pred) * (1 + 1/n_points +
 ci_95 = 1.96 * predict_std
 
 # Create comprehensive visualization
-fig, axes = plt.subplots(2, 2, figsize=(14, 10))
+fig, axes = plt.subplots(2, 2, figsize=(12, 9))
 fig.suptitle('Linear Regression Analysis: Understanding the Fundamentals', 
-             fontsize=16, fontweight='bold')
+             fontsize=14, fontweight='bold')
 
 # Plot 1: Data and Fit with Confidence Interval
 ax1 = axes[0, 0]
-ax1.scatter(x, y, alpha=0.6, s=50, label='Observed Data', color='steelblue')
-ax1.plot(x, y_pred, 'r-', linewidth=2, label=f'Fitted Line (y = {model.coef_[0]:.2f}x + {model.intercept_:.2f})')
-ax1.plot(x, y_true, 'g--', linewidth=2, alpha=0.7, label=f'True Relationship (y = {true_slope}x + {true_intercept})')
+ax1.scatter(x, y, alpha=0.6, s=40, label='Observed Data', color='steelblue')
+ax1.plot(x, y_pred, 'r-', linewidth=2, label=f'Fitted: y = {model.coef_[0]:.2f}x + {model.intercept_:.2f}')
+ax1.plot(x, y_true, 'g--', linewidth=2, alpha=0.7, label=f'True: y = {true_slope}x + {true_intercept}')
 ax1.fill_between(x, y_pred - ci_95, y_pred + ci_95, alpha=0.2, color='red', label='95% CI')
-ax1.set_xlabel('x', fontsize=12)
-ax1.set_ylabel('y', fontsize=12)
-ax1.set_title('Data and Fitted Model', fontsize=13, fontweight='bold')
-ax1.legend(loc='upper left', fontsize=9)
+ax1.set_xlabel('x', fontsize=11)
+ax1.set_ylabel('y', fontsize=11)
+ax1.set_title('Data and Fitted Model', fontsize=12, fontweight='bold')
+ax1.legend(loc='upper left', fontsize=8)
 ax1.grid(True, alpha=0.3)
-ax1.text(0.5, 23, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
-         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5), fontsize=11)
+ax1.text(0.98, 0.02, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}', 
+         transform=ax1.transAxes,
+         bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5), 
+         fontsize=10, verticalalignment='bottom', horizontalalignment='right')
 
 # Plot 2: Residual Plot
 ax2 = axes[0, 1]
-ax2.scatter(y_pred, residuals, alpha=0.6, s=50, color='steelblue')
+ax2.scatter(y_pred, residuals, alpha=0.6, s=40, color='steelblue')
 ax2.axhline(y=0, color='r', linestyle='--', linewidth=2)
 ax2.axhline(y=rmse, color='orange', linestyle=':', linewidth=1.5, label=f'±RMSE = ±{rmse:.2f}')
 ax2.axhline(y=-rmse, color='orange', linestyle=':', linewidth=1.5)
-ax2.set_xlabel('Predicted Values', fontsize=12)
-ax2.set_ylabel('Residuals', fontsize=12)
-ax2.set_title('Residual Plot (Check for Homoscedasticity)', fontsize=13, fontweight='bold')
-ax2.legend(fontsize=9)
+ax2.set_xlabel('Predicted Values', fontsize=11)
+ax2.set_ylabel('Residuals', fontsize=11)
+ax2.set_title('Residual Plot', fontsize=12, fontweight='bold')
+ax2.legend(fontsize=8)
 ax2.grid(True, alpha=0.3)
 
 # Plot 3: Q-Q Plot for Normality of Residuals
 ax3 = axes[1, 0]
 stats.probplot(residuals, dist="norm", plot=ax3)
-ax3.set_title('Q-Q Plot (Check for Normality of Residuals)', fontsize=13, fontweight='bold')
+ax3.set_title('Q-Q Plot', fontsize=12, fontweight='bold')
 ax3.grid(True, alpha=0.3)
 
 # Plot 4: Histogram of Residuals
 ax4 = axes[1, 1]
 ax4.hist(residuals, bins=20, alpha=0.7, color='steelblue', edgecolor='black')
 ax4.axvline(x=0, color='r', linestyle='--', linewidth=2, label='Zero')
-ax4.set_xlabel('Residual Value', fontsize=12)
-ax4.set_ylabel('Frequency', fontsize=12)
-ax4.set_title('Distribution of Residuals', fontsize=13, fontweight='bold')
-ax4.legend(fontsize=9)
+ax4.set_xlabel('Residual Value', fontsize=11)
+ax4.set_ylabel('Frequency', fontsize=11)
+ax4.set_title('Distribution of Residuals', fontsize=12, fontweight='bold')
+ax4.legend(fontsize=8)
 ax4.grid(True, alpha=0.3, axis='y')
 
 # Add statistical summary
@@ -169,7 +173,7 @@ ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes,
          verticalalignment='top', fontsize=10)
 
 plt.tight_layout()
-plt.savefig('static/images/linear-regression-analysis.png', dpi=300, bbox_inches='tight')
+plt.savefig('static/images/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
 plt.show()
 
 # Print detailed statistics
@@ -190,6 +194,8 @@ print(f"  Min:            {np.min(residuals):.4f}")
 print(f"  Max:            {np.max(residuals):.4f}")
 print("="*60)
 ```
+
+</details>
 
 ![Linear Regression Analysis](../../images/linear-regression-analysis.png)
 
