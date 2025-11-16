@@ -20,3 +20,6 @@ Thumbs.db
 
 # Hugo
 .hugo_build.lock
+
+# Local guides (not for repo)
+POSTING.md
