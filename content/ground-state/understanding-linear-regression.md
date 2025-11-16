@@ -29,7 +29,7 @@ where:
 The goal is to find the values of $\beta_0$ and $\beta_1$ that minimize the sum of squared residuals:
 
 $$
-\text{SSR} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
+\mathrm{SSR} = \sum_{i=1}^{n} (y_i - \hat{y}_i)^2 = \sum_{i=1}^{n} (y_i - \beta_0 - \beta_1 x_i)^2
 $$
 
 This is the **ordinary least squares (OLS)** criterion. Taking partial derivatives and setting them to zero yields the closed-form solutions:
