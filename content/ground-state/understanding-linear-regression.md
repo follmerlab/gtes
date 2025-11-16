@@ -90,7 +90,7 @@ from scipy import stats
 np.random.seed(42)
 
 # Generate synthetic data with known relationship
-n_points = 67
+n_points = 25
 x = np.linspace(0, 10, n_points)
 true_slope = 2.5
 true_intercept = 1.0
@@ -124,7 +124,7 @@ fig.suptitle('Linear Regression Analysis: Understanding the Fundamentals',
 
 # Plot 1: Data and Fit with Confidence Interval
 ax1 = axes[0, 0]
-ax1.scatter(x, y, alpha=0.6, s=27, label='Observed Data', color='steelblue')
+ax1.scatter(x, y, alpha=0.6, s=20, label='Observed Data', color='steelblue')
 ax1.plot(x, y_pred, 'r-', linewidth=2, label=f'Fitted: y = {model.coef_[0]:.2f}x + {model.intercept_:.2f}')
 ax1.plot(x, y_true, 'g--', linewidth=2, alpha=0.7, label=f'True: y = {true_slope}x + {true_intercept}')
 ax1.fill_between(x, y_pred - ci_95, y_pred + ci_95, alpha=0.2, color='red', label='95% CI')
@@ -140,7 +140,7 @@ ax1.text(0.98, 0.55, f'R² = {r2:.4f}\nRMSE = {rmse:.4f}',
 
 # Plot 2: Residual Plot
 ax2 = axes[0, 1]
-ax2.scatter(y_pred, residuals, alpha=0.6, s=27, color='steelblue')
+ax2.scatter(y_pred, residuals, alpha=0.6, s=20, color='steelblue')
 ax2.axhline(y=0, color='r', linestyle='--', linewidth=2)
 ax2.axhline(y=rmse, color='orange', linestyle=':', linewidth=1.5, label=f'±RMSE = ±{rmse:.2f}')
 ax2.axhline(y=-rmse, color='orange', linestyle=':', linewidth=1.5)
@@ -197,7 +197,7 @@ print("="*60)
 
 </details>
 
-![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=3)
+![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=4)
 
 # Key Diagnostic Checks
 
