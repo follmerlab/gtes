@@ -2,7 +2,9 @@
 
 A blog exploring the intersection of fundamental science and cutting-edge research in molecular chemistry and spectroscopy.
 
-**Live Site:** (will be added after GitHub Pages deployment)
+**Live Site:** https://follmerlab.github.io/gt-es-website/
+
+**Repository:** https://github.com/follmerlab/gt-es-website
 
 ## 🚀 Quick Start: Writing & Publishing Posts
 
