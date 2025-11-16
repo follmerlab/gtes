@@ -197,7 +197,7 @@ print("="*60)
 
 </details>
 
-![Linear Regression Analysis](../../images/linear-regression-analysis.png)
+![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=2)
 
 # Key Diagnostic Checks
 
