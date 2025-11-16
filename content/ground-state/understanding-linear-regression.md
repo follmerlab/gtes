@@ -244,7 +244,6 @@ Linear regression remains compelling because it rewards rigor. When we:
 3. Investigate residuals for structure tied to experimental design,
 4. Communicate uncertainty with the same seriousness as the final estimate,
 
-we produce results that withstand peer review and guide subsequent experiments. That is the standard expected of an engaged graduate student, and it keeps even this foundational method informative rather than routine.
 
 ---
 
