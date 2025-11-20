@@ -189,7 +189,7 @@ ax4.text(0.05, 0.95, stats_text, transform=ax4.transAxes,
         verticalalignment='top', fontsize=8)
 
 plt.tight_layout()
-plt.savefig('static/images/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
+plt.savefig('content/ground-state/understanding-linear-regression/linear-regression-analysis.png', dpi=200, bbox_inches='tight')
 plt.show()
 
 # Print detailed statistics
@@ -213,7 +213,7 @@ print("="*60)
 
 </details>
 
-![Linear Regression Analysis](../../images/linear-regression-analysis.png?v=5)
+![Linear Regression Analysis](linear-regression-analysis.png)
 
 # Diagnostics in Practice
 
